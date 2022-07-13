@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ESNext",
+    "baseUrl": "./",
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "alwaysStrict": true,
+    "pretty": true,
+    "esModuleInterop": true,
+    "lib": ["DOM", "es2017"],
+    "types": ["./scripts/typings.d.ts"]
+  },
+  "compileOnSave": true,
+  "exclude": ["node_modules"]
+}

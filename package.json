@@ -1,0 +1,29 @@
+{
+  "name": "game-on",
+  "version": "1.0.0",
+  "homepage": "https://zuruuh.github.io/game-on",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zuruuh/game-on.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "docs": "jsdoc scripts -d docs"
+  },
+  "author": "Ziadi Younès<ziadi.mail.pro@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": ">=5.16.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jsdoc": "^3.6.10",
+    "prettier": "^2.6.2",
+    "vite": "^3"
+  },
+  "engines": {
+    "node": ">=1.17.0",
+    "npm": ">=8.0.0"
+  }
+}
