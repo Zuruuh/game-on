@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Reservation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- TODO: Import locally #14 -->
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans"
+      rel="stylesheet"
+    />
+    <!-- TODO: replace this with custom font-face #19 -->
+    
+    <script type="module" crossorigin src="/game-on/assets/index.be49e28e.js"></script>
+    <link rel="stylesheet" href="/game-on/assets/index.5d80d585.css">
+  </head>
+  <body>
+    <nav class="top-nav layout">
+      <div class="header-logo">
+        <img alt="Game On logo" src="/game-on/assets/Logo.8ee4c1bb.png" />
+      </div>
+      <div class="inner-nav">
+        <a href="#" class="active"><span>Accueil</span></a>
+        <a href="#"><span>Détails de l'évènement</span></a>
+        <a href="#"><span>À propos</span></a>
+        <a href="#"><span>Contact</span></a>
+        <a href="#"><span>Évènements passés</span></a>
+        <button id="nav-menu-icon" class="menu-icon">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+    <main>
+      <div class="hero-section">
+        <div class="hero-content">
+          <h1 class="hero-headline">
+            Marathon national<br />
+            de jeux vidéos
+          </h1>
+          <p class="hero-text">
+            Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux
+            réservations... Places limitées !
+          </p>
+          <button class="btn-signup register-modal-btn">je m'inscris</button>
+        </div>
+        <div class="hero-img">
+          <img src="/game-on/assets/bg_img.7445deda.jpg" alt="Joueurs de jeux vidéo" />
+        </div>
+        <button class="btn-signup register-modal-btn">je m'inscris</button>
+      </div>
+
+      <div id="modal-container">
+        <div class="modal" id="inscription-modal" aria-hidden="true">
+          <button class="modal-close modal-close-button"></button>
+          <div class="modal-body">
+            <form name="inscription">
+              <div class="form-control">
+                <label for="inscription-first-name">Prénom</label>
+                <input
+                  type="text"
+                  id="inscription-first-name"
+                  name="first-name"
+                />
+              </div>
+              <div class="form-control">
+                <label for="inscription-last-name">Nom</label>
+                <input
+                  type="text"
+                  id="inscription-last-name"
+                  name="last-name"
+                />
+              </div>
+              <div class="form-control">
+                <label for="inscription-email">E-mail</label>
+                <input type="email" id="inscription-email" name="email" />
+              </div>
+              <div class="form-control">
+                <label for="inscription-birthdate">Date de naissance</label>
+                <input
+                  type="date"
+                  id="inscription-birthdate"
+                  name="birthdate"
+                />
+              </div>
+              <div class="form-control">
+                <label for="inscription-participations">
+                  À combien de tournois GameOn avez-vous déjà participé ?
+                </label>
+                <input
+                  type="number"
+                  id="inscription-participations"
+                  name="participations"
+                />
+              </div>
+              <div class="form-control">
+                <label id="inscription-location">
+                  A quel tournoi souhaitez-vous participer cette année ?
+                </label>
+                <ul aria-labelledby="inscription-location">
+                  <li>
+                    <input
+                      type="radio"
+                      id="inscription-location-1"
+                      name="location"
+                      value="New York"
+                    />
+                    <label class="radio-label" for="inscription-location-1">
+                      <span class="radio-icon"></span>
+                      New York
+                    </label>
+                  </li>
+                  <li>
+                    <input
+                      class="checkbox-input"
+                      type="radio"
+                      id="inscription-location-2"
+                      name="location"
+                      value="San Francisco"
+                    />
+                    <label class="radio-label" for="inscription-location-2">
+                      <span class="radio-icon"></span>
+                      San Francisco
+                    </label>
+                  </li>
+                  <li>
+                    <input
+                      class="checkbox-input"
+                      type="radio"
+                      id="inscription-location-3"
+                      name="location"
+                      value="Seattle"
+                    />
+                    <label class="radio-label" for="inscription-location-3">
+                      <span class="radio-icon"></span>
+                      Seattle
+                    </label>
+                  </li>
+                  <li>
+                    <input
+                      class="checkbox-input"
+                      type="radio"
+                      id="inscription-location-4"
+                      name="location"
+                      value="Chicago"
+                    />
+                    <label class="radio-label" for="inscription-location-4">
+                      <span class="radio-icon"></span>
+                      Chicago
+                    </label>
+                  </li>
+                  <li>
+                    <input
+                      class="checkbox-input"
+                      type="radio"
+                      id="inscription-location-5"
+                      name="location"
+                      value="Boston"
+                    />
+                    <label class="radio-label" for="inscription-location-5">
+                      <span class="radio-icon"></span>
+                      Boston
+                    </label>
+                  </li>
+                  <li>
+                    <input
+                      class="checkbox-input"
+                      type="radio"
+                      id="inscription-location-6"
+                      name="location"
+                      value="Portland"
+                    />
+                    <label class="radio-label" for="inscription-location-6">
+                      <span class="radio-icon"></span>
+                      Portland
+                    </label>
+                  </li>
+                </ul>
+              </div>
+              <div class="form-control">
+                <input
+                  class="checkbox-input"
+                  type="checkbox"
+                  id="inscription-terms-and-conditions"
+                  checked
+                />
+                <label
+                  class="checkbox-label"
+                  for="inscription-terms-and-conditions"
+                >
+                  <span class="radio-icon"></span>
+                  J'ai lu et accepté les conditions d'utilisation.
+                </label>
+                <input
+                  class="checkbox-input"
+                  type="checkbox"
+                  id="inscription-subscribe"
+                />
+                <label class="checkbox-label" for="inscription-subscribe">
+                  <span class="radio-icon"></span>
+                  Je souhaite être prévenu des prochains évènements.
+                </label>
+              </div>
+              <input
+                type="submit"
+                class="button btn-submit"
+                value="C'est parti"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p class="copyrights">Copyright &copy; 2014 - 2022, GameOn Inc.</p>
+    </footer>
+  </body>
+</html>
