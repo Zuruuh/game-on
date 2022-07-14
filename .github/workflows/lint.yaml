@@ -1,0 +1,52 @@
+name: Lint styles & scripts
+on: [push, pull_request]
+
+jobs:
+  lint-sources:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js environment ✅
+        uses: actions/setup-node@v3.3.0
+        with:
+          node-version: 16
+
+      - name: Setup pnpm 📦
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.1.6
+
+      - name: Install dependencies 🔧
+        run: pnpm install --frozen-lockfile
+
+      - name: Run eslint ✨
+        run: node_modules/eslint/bin/eslint.js ./
+
+      - name: Run prettier ✨
+        run: node_modules/prettier/bin-prettier.js -c ./
+
+  lint-dist:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js environment ✅
+        uses: actions/setup-node@v3.3.0
+        with:
+          node-version: 16
+
+      - name: Setup pnpm 📦
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.1.6
+
+      - name: Install and Build 🔧
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm run prod /game-on/
+
+      - name: Run w3c validator ✨
+        run: bash ./scripts/w3c-ci.sh dist

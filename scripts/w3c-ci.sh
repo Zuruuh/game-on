@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Uploads all built html files to w3c's validator & logs the validation results.
 # If at least one file triggers an error, program will exit 1
 function ci() {
