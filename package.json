@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "prod": "vite build --base=$1",
     "docs": "jsdoc scripts -d docs"
   },
   "author": "Ziadi Younès<ziadi.mail.pro@gmail.com>",
