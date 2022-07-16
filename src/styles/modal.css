@@ -11,7 +11,7 @@
   top: 0;
   height: 100%;
   width: 100%;
-  overflow: auto;
+  overflow: hidden;
   background-color: rgba(26, 39, 156, 0.4);
 }
 
@@ -23,8 +23,6 @@
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
-  animation-name: modalopen;
-  animation-duration: var(--modal-duration);
   background: #232323;
   border-radius: 10px;
   overflow: hidden;
@@ -32,16 +30,33 @@
   color: #fff;
   padding-top: 10px;
   display: block;
+  transform: translateY(-150px);
+  transition: transform ease-out var(--modal-duration);
+}
+
+.modal,
+.modal * {
+  opacity: 0;
   visibility: hidden;
 }
 
 .modal.shown {
+  transform: translateY(-55px);
+}
+
+.modal.shown,
+.modal.shown * {
+  opacity: 1;
   visibility: visible;
 }
 
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+}
+
+.modal-close-button {
+  z-index: 1;
 }
 
 @media screen and (max-width: 800px) {
@@ -80,15 +95,5 @@
   .copyrights {
     margin-top: 50px;
     text-align: center;
-  }
-}
-
-@keyframes modalopen {
-  from {
-    opacity: 0;
-    transform: translateY(-150px);
-  }
-  to {
-    opacity: 1;
   }
 }

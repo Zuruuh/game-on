@@ -4,8 +4,6 @@
     <meta charset="utf-8" />
     <title>Reservation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="stylesheet" href="/src/styles/app.css" />
-    <link rel="stylesheet" href="/src/styles/modal.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -58,7 +56,7 @@
           <button class="modal-close modal-close-button"></button>
           <div class="modal-body">
             <form name="inscription">
-              <div class="form-control">
+              <div class="form-control text">
                 <label for="inscription-first-name">Prénom</label>
                 <input
                   type="text"
@@ -66,7 +64,7 @@
                   name="first-name"
                 />
               </div>
-              <div class="form-control">
+              <div class="form-control text">
                 <label for="inscription-last-name">Nom</label>
                 <input
                   type="text"
@@ -74,11 +72,11 @@
                   name="last-name"
                 />
               </div>
-              <div class="form-control">
+              <div class="form-control text">
                 <label for="inscription-email">E-mail</label>
                 <input type="email" id="inscription-email" name="email" />
               </div>
-              <div class="form-control">
+              <div class="form-control text">
                 <label for="inscription-birthdate">Date de naissance</label>
                 <input
                   type="date"
@@ -86,7 +84,7 @@
                   name="birthdate"
                 />
               </div>
-              <div class="form-control">
+              <div class="form-control text">
                 <label for="inscription-participations">
                   À combien de tournois GameOn avez-vous déjà participé ?
                 </label>
@@ -96,7 +94,7 @@
                   name="participations"
                 />
               </div>
-              <div class="form-control">
+              <div class="form-control radio">
                 <label id="inscription-location">
                   A quel tournoi souhaitez-vous participer cette année ?
                 </label>
@@ -180,7 +178,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="form-control">
+              <div class="form-control checkbox">
                 <input
                   class="checkbox-input"
                   type="checkbox"
@@ -194,6 +192,8 @@
                   <span class="radio-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
+              </div>
+              <div class="form-control checkbox">
                 <input
                   class="checkbox-input"
                   type="checkbox"
