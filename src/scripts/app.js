@@ -1,6 +1,7 @@
 // @ts-check
 'use strict';
 
+import '/src/styles/app.css';
 import { Modal } from './Modal.js';
 import './DOM';
 import { ModalContainer } from './ModalContainer.js';
