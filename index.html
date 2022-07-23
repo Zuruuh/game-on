@@ -14,7 +14,8 @@
       rel="stylesheet"
     />
     <!-- TODO: replace this with custom font-face #19 -->
-    <script type="module" src="/src/scripts/app.js"></script>
+    <script type="module" src="/src/scripts/app.mjs"></script>
+    <script type="module" src="/src/scripts/pages/index.mjs"></script>
   </head>
   <body>
     <nav class="top-nav layout">
@@ -51,62 +52,63 @@
         <button class="btn-signup register-modal-btn">je m'inscris</button>
       </div>
 
-      <div id="modal-container">
-        <div class="modal" id="inscription-modal" aria-hidden="true">
+      <div id="modals-container">
+        <div class="modal" id="registration-modal" aria-hidden="true">
           <button class="modal-close modal-close-button"></button>
           <div class="modal-body">
-            <form name="inscription">
+            <form name="registration">
               <div class="form-control text">
-                <label for="inscription-first-name">Prénom</label>
+                <label for="registration-firstname">Prénom</label>
                 <input
                   type="text"
-                  id="inscription-first-name"
-                  name="first-name"
+                  id="registration-firstname"
+                  name="firstname"
                 />
               </div>
               <div class="form-control text">
-                <label for="inscription-last-name">Nom</label>
-                <input
-                  type="text"
-                  id="inscription-last-name"
-                  name="last-name"
-                />
+                <label for="registration-lastname">Nom</label>
+                <input type="text" id="registration-lastname" name="lastname" />
               </div>
               <div class="form-control text">
-                <label for="inscription-email">E-mail</label>
-                <input type="email" id="inscription-email" name="email" />
+                <label for="registration-email">E-mail</label>
+                <input type="email" id="registration-email" name="email" />
               </div>
               <div class="form-control text">
-                <label for="inscription-birthdate">Date de naissance</label>
+                <label for="registration-birthdate">Date de naissance</label>
                 <input
                   type="date"
-                  id="inscription-birthdate"
+                  id="registration-birthdate"
                   name="birthdate"
                 />
               </div>
               <div class="form-control text">
-                <label for="inscription-participations">
+                <label for="registration-participations">
                   À combien de tournois GameOn avez-vous déjà participé ?
                 </label>
                 <input
                   type="number"
-                  id="inscription-participations"
+                  value="0"
+                  id="registration-participations"
                   name="participations"
                 />
               </div>
               <div class="form-control radio">
-                <label id="inscription-location">
+                <label id="registration-location">
                   A quel tournoi souhaitez-vous participer cette année ?
                 </label>
-                <ul aria-labelledby="inscription-location">
+                <ul
+                  data-name="location"
+                  aria-labelledby="registration-location"
+                >
                   <li>
                     <input
                       type="radio"
-                      id="inscription-location-1"
+                      id="registration-location-1"
                       name="location"
+                      class="checkbox-input"
                       value="New York"
                     />
-                    <label class="radio-label" for="inscription-location-1">
+                    <label class="radio-label" for="registration-location-1">
                       <span class="radio-icon"></span>
                       New York
                     </label>
@@ -115,11 +117,11 @@
                     <input
                       class="checkbox-input"
                       type="radio"
-                      id="inscription-location-2"
+                      id="registration-location-2"
                       name="location"
                       value="San Francisco"
                     />
-                    <label class="radio-label" for="inscription-location-2">
+                    <label class="radio-label" for="registration-location-2">
                       <span class="radio-icon"></span>
                       San Francisco
                     </label>
@@ -128,11 +130,11 @@
                     <input
                       class="checkbox-input"
                       type="radio"
-                      id="inscription-location-3"
+                      id="registration-location-3"
                       name="location"
                       value="Seattle"
                     />
-                    <label class="radio-label" for="inscription-location-3">
+                    <label class="radio-label" for="registration-location-3">
                       <span class="radio-icon"></span>
                       Seattle
                     </label>
@@ -141,11 +143,11 @@
                     <input
                       class="checkbox-input"
                       type="radio"
-                      id="inscription-location-4"
+                      id="registration-location-4"
                       name="location"
                       value="Chicago"
                     />
-                    <label class="radio-label" for="inscription-location-4">
+                    <label class="radio-label" for="registration-location-4">
                       <span class="radio-icon"></span>
                       Chicago
                     </label>
@@ -154,11 +156,11 @@
                     <input
                       class="checkbox-input"
                       type="radio"
-                      id="inscription-location-5"
+                      id="registration-location-5"
                       name="location"
                       value="Boston"
                     />
-                    <label class="radio-label" for="inscription-location-5">
+                    <label class="radio-label" for="registration-location-5">
                       <span class="radio-icon"></span>
                       Boston
                     </label>
@@ -167,11 +169,11 @@
                     <input
                       class="checkbox-input"
                       type="radio"
-                      id="inscription-location-6"
+                      id="registration-location-6"
                       name="location"
                       value="Portland"
                     />
-                    <label class="radio-label" for="inscription-location-6">
+                    <label class="radio-label" for="registration-location-6">
                       <span class="radio-icon"></span>
                       Portland
                     </label>
@@ -182,12 +184,13 @@
                 <input
                   class="checkbox-input"
                   type="checkbox"
-                  id="inscription-terms-and-conditions"
+                  id="registration-terms-and-conditions"
+                  name="terms-and-conditions"
                   checked
                 />
                 <label
                   class="checkbox-label"
-                  for="inscription-terms-and-conditions"
+                  for="registration-terms-and-conditions"
                 >
                   <span class="radio-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
@@ -197,9 +200,10 @@
                 <input
                   class="checkbox-input"
                   type="checkbox"
-                  id="inscription-subscribe"
+                  id="registration-subscribe"
+                  name="subscribe"
                 />
-                <label class="checkbox-label" for="inscription-subscribe">
+                <label class="checkbox-label" for="registration-subscribe">
                   <span class="radio-icon"></span>
                   Je souhaite être prévenu des prochains évènements.
                 </label>
