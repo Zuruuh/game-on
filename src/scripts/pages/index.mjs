@@ -35,4 +35,4 @@ class Index {
   }
 }
 
-await new Index().start();
+new Index().start().catch(console.error);

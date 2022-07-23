@@ -21,4 +21,4 @@ class App {
   }
 }
 
-await new App().start();
+new App().start().catch(console.error);
