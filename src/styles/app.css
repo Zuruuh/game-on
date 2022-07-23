@@ -33,12 +33,15 @@ img {
   overflow: hidden;
   margin: 3.5%;
 }
+
 .header-logo {
   float: left;
 }
+
 .inner-nav {
   float: right;
 }
+
 .top-nav a,
 .top-nav button {
   float: left;
@@ -54,11 +57,12 @@ img {
 
 .top-nav button {
   border: 0;
+  cursor: pointer;
   background: transparent;
 }
 
 .top-nav a:hover,
-.top-nav button:hover {
+.top-nav:hover button {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
