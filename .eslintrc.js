@@ -12,6 +12,7 @@ module.exports = {
   rules: {
     'prettier/prettier': ['error'],
     'require-jsdoc': ['off'],
+    'valid-jsdoc': ['off'],
     'spaced-comment': ['off'],
   },
 };
