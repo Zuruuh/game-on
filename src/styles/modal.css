@@ -2,7 +2,7 @@
   --modal-duration: 0.8s;
 }
 
-#modal-container {
+#modals-container {
   visibility: hidden;
   display: block;
   position: fixed;
@@ -15,7 +15,7 @@
   background-color: rgba(26, 39, 156, 0.4);
 }
 
-#modal-container.shown {
+#modals-container.shown {
   visibility: visible;
 }
 
