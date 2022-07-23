@@ -1,27 +1,29 @@
-// @ts-check
 'use strict';
 
-import { arrayUnique } from './utils';
-import { ModalContainer } from './ModalContainer'; // eslint-disable-line no-unused-vars
+import { arrayUnique } from '../utils/arrayUnique';
 
 /**
- * Represents a DOM modal element with a javascript abstraction class to facilitate interactions
+ * @typedef {import('./ModalContainer').ModalContainer} ModalContainer
+ */
+
+/**
+ * Represents a DOM modals element with a javascript abstraction class to facilitate interactions
  */
 export class Modal {
   /**
-   * @type {HTMLElement} element
+   * @type {HTMLElement}
    * @readonly
    */
   element;
 
   /**
-   * @type {?ModalContainer}
+   * @type {ModalContainer|null}
    */
   container = null;
 
   /**
    * @param {string} modalSelector The CSS Selector which will be used to get the element from the DOM
-   * @param {string[]} buttonsSelectors The CSS Selector for the buttons which will trigger the modal to show up.
+   * @param {string[]} buttonsSelectors The CSS Selector for the buttons which will trigger the modals to show up.
    */
   constructor(modalSelector, buttonsSelectors) {
     this.element = document.selectOrThrow(modalSelector);
@@ -30,7 +32,7 @@ export class Modal {
   }
 
   /**
-   * Call this method to show/hide the modal on screen
+   * Call this method to show/hide the modals on screen
    *
    * @return {void}
    */
@@ -59,7 +61,7 @@ export class Modal {
   /**
    * @param {string[]} buttonsSelectors @see{Modal.constructor.buttonsSelectors}
    *
-   * @listen ["click"]
+   * @listens ["click"]
    * @return {void}
    */
   #registerListeners = (buttonsSelectors) => {
@@ -70,7 +72,7 @@ export class Modal {
       .reduce((previous, current) => [...current, ...previous]);
 
     const innerClosingButtons = Array.from(
-      this.element.querySelectorAll('.modal-close-button')
+      this.element.querySelectorAll('.modals-close-button')
     );
 
     const buttons = arrayUnique([
