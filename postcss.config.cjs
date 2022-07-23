@@ -1,8 +1,7 @@
-// @ts-check
 'use strict';
 
 /**
- * @type {Partial<import('postcss-load-config').Config>} PostcssConfig
+ * @type {Partial<import('postcss-load-config').Config>}
  */
 const PostcssConfig = {
   plugins: [

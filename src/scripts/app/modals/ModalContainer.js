@@ -1,15 +1,15 @@
-// @ts-check
 'use strict';
 
-import { Modal } from './Modal'; // eslint-disable-line no-unused-vars
-import './DOM';
+/**
+ * @typedef {import('./Modal').Modal} Modal
+ */
 
 /**
- * Abstraction over the DOM modal container html element to group multiple modals on the same page.
+ * Abstraction over the DOM modals container html element to group multiple modals on the same page.
  */
 export class ModalContainer {
   /**
-   * @type {Modal[]} modals
+   * @type {Modal[]}
    */
   modals = [];
 
@@ -26,7 +26,7 @@ export class ModalContainer {
   }
 
   /**
-   * Makes sure the container is always visible when a modal is currently being shown.
+   * Makes sure the container is always visible when a modals is currently being shown.
    *
    * @return {void}
    */
