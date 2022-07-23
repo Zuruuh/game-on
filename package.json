@@ -9,8 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "prod": "vite build --base=$1",
-    "docs": "jsdoc scripts -d docs"
+    "prod": "vite build --base=$1"
   },
   "author": "Ziadi Younès<ziadi.mail.pro@gmail.com>",
   "license": "ISC",
@@ -21,7 +20,6 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "jsdoc": "^3.6.10",
     "postcss": "^8.4.14",
     "postcss-load-config": "^4.0.1",
     "prettier": "^2.6.2",
