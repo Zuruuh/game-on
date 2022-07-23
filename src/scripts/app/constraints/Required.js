@@ -13,7 +13,14 @@ export class Required extends _Validator {
   /**
    * @type {ValidatorFunction}
    */
-  validate = (field) => field.value !== null || field.value !== undefined;
+  validate = (field) => {
+    switch (field.type) {
+      case 'checkbox':
+        return field.checked;
+      default:
+        return field.value !== null || field.value !== undefined;
+    }
+  };
 
   /**
    * @override
