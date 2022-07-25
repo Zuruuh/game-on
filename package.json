@@ -9,7 +9,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "prod": "vite build --base=$1"
+    "prod": "vite build --base=$1",
+    "test": "pnpx playwright test"
   },
   "author": "Ziadi Younès<ziadi.mail.pro@gmail.com>",
   "license": "ISC",

@@ -26,7 +26,7 @@ jobs:
         run: pnpx playwright install --with-deps
 
       - name: Run Playwright tests 🧪
-        run: pnpx playwright test
+        run: pnpm run test
 
       - uses: actions/upload-artifact@v2
         if: always()
