@@ -1,0 +1,36 @@
+name: E2E Tests
+on: [push, pull_request]
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout 🛎️
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js environment ✅
+      uses: actions/setup-node@v3.3.0
+      with:
+        node-version: 16
+
+    - name: Setup pnpm 📦
+      uses: pnpm/action-setup@v2.2.2
+      with:
+        version: 7.1.6
+
+    - name: Install dependencies 🔧
+      run: pnpm install --frozen-lockfile
+i
+    - name: Install Playwright Browsers 🕸
+      run: pnpx playwright install --with-deps
+
+    - name: Run Playwright tests 🧪
+      run: pnpx playwright test
+
+    - uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 30
