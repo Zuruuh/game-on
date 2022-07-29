@@ -74,7 +74,7 @@ export class FormModal extends Modal {
           const errors = this.formValidator.validateField(field);
 
           field.displayErrors(errors);
-        }, 3000);
+        }, 1500);
       });
     });
   }
