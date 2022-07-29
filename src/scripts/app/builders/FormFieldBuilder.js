@@ -43,6 +43,11 @@ export class FormFieldBuilder {
   #type;
 
   /**
+   * @type {NodeJS.Timeout}
+   */
+  debounceTimeout;
+
+  /**
    * @param {FormBuilder} formBuilder
    * @param {string} name
    * @param {'single'|'multiple'} type
@@ -59,6 +64,13 @@ export class FormFieldBuilder {
 
   get isMultiple() {
     return this.#type === 'multiple';
+  }
+
+  /**
+   * @return {HTMLDivElement}
+   */
+  get container() {
+    return this.element.parentElement;
   }
 
   /**
@@ -119,6 +131,18 @@ export class FormFieldBuilder {
     this.#cachedElement = element;
 
     return element;
+  }
+
+  /**
+   * @param {string[]} errors
+   */
+  displayErrors(errors) {
+    if (!errors.length) {
+      return this.container.removeAttribute('data-error');
+    }
+
+    const [error] = errors;
+    this.container.setAttribute('data-error', error);
   }
 
   //! Constraints

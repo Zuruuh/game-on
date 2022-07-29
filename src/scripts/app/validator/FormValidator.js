@@ -1,8 +1,8 @@
 'use strict';
 
 /**
- * @typedef {import('../builder/FormBuilder').FormBuilder} FormBuilder
- * @typedef {import('../builder/FormFieldBuilder').FormFieldBuilder} FormFieldBuilder
+ * @typedef {import('../builders/FormBuilder').FormBuilder} FormBuilder
+ * @typedef {import('../builders/FormFieldBuilder').FormFieldBuilder} FormFieldBuilder
  * @typedef {import('../constraints/_Validator')._Validator} Validator
  */
 

@@ -1,6 +1,6 @@
 'use strict';
 
-import { FormBuilder } from '../app/builder/FormBuilder';
+import { FormBuilder } from '../app/builders/FormBuilder';
 
 /**
  * @param {HTMLFormElement} element

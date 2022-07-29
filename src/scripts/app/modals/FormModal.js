@@ -4,7 +4,7 @@ import { Modal } from './Modal';
 import { FormValidator } from '../validator/FormValidator';
 
 /**
- * @typedef {import('../builder/FormBuilder').FormBuilder} FormBuilder
+ * @typedef {import('../builders/FormBuilder').FormBuilder} FormBuilder
  */
 
 export class FormModal extends Modal {
@@ -15,7 +15,7 @@ export class FormModal extends Modal {
   formValidator;
 
   /**
-   * @type {function(SubmitEvent): *}
+   * @type {function(SubmitEvent, Record<string, *>): *}
    * @readonly
    */
   onSubmit;
@@ -26,6 +26,10 @@ export class FormModal extends Modal {
 
   get formBuilder() {
     return this.formValidator.formBuilder;
+  }
+
+  get formFields() {
+    return this.formBuilder.fields;
   }
 
   /**
@@ -44,12 +48,35 @@ export class FormModal extends Modal {
   }
 
   /**
-   * @listens ["submit","change"]
+   * @listens ["submit","focusout","input"]
    */
   #registerListeners() {
     this.formValidator.form.addEventListener('submit', this.submit.bind(this));
 
-    // TODO: Listen on change on all inputs to validate in real time ()
+    this.formFields.forEach((field) => {
+      if (field.isMultiple) {
+        return;
+      }
+      // Revalidates the field when use leaves it.
+      field.element.addEventListener('focusout', (event) => {
+        const errors = this.formValidator.validateField(field);
+
+        field.displayErrors(errors);
+      });
+
+      field.element.addEventListener('input', (event) => {
+        field.container.removeAttribute('data-error');
+        if (field.debounceTimeout) {
+          clearTimeout(field.debounceTimeout);
+        }
+
+        field.debounceTimeout = setTimeout(() => {
+          const errors = this.formValidator.validateField(field);
+
+          field.displayErrors(errors);
+        }, 3000);
+      });
+    });
   }
 
   /**
@@ -62,7 +89,11 @@ export class FormModal extends Modal {
     const errors = this.formValidator.validateForm();
 
     if (errors === true) {
-      this.onSubmit(event);
+      const data = Array.from(new FormData(event.target).entries())
+        .map(([key, value]) => ({ [key]: value }))
+        .reduce((previous, current) => ({ ...previous, ...current }));
+
+      this.onSubmit(event, data);
 
       return;
     }
