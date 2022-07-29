@@ -19,7 +19,7 @@ export class FormBuilder {
    */
   constructor(form) {
     if (!(form instanceof HTMLFormElement)) {
-      throw new Error('Invalid html element passed to form builder!');
+      throw new Error('Invalid html element passed to form builders!');
     }
 
     this.form = form;

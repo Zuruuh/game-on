@@ -13,7 +13,6 @@
 body {
   display: flex;
   flex-direction: column;
-  /* background-image: url("background.png"); Does not exist ?? */
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -82,6 +81,7 @@ img {
   .top-nav a {
     display: none;
   }
+
   .top-nav button.menu-icon {
     float: right;
     display: block;
@@ -92,11 +92,13 @@ img {
   .top-nav.responsive {
     position: relative;
   }
+
   .top-nav.responsive .menu-icon {
     position: absolute;
     right: 0;
     top: 0;
   }
+
   .top-nav.responsive a {
     float: none;
     display: block;
@@ -148,8 +150,6 @@ main {
   font-family: var(--font-slab);
 }
 
-/* Modal form */
-
 .hero-section {
   min-height: 93vh;
   border-radius: 10px;
@@ -159,6 +159,7 @@ main {
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
+
 .hero-content {
   padding: 51px 67px;
   grid-column: span 4;
@@ -168,6 +169,7 @@ main {
   text-align: left;
   min-width: 424px;
 }
+
 .hero-content::after {
   content: '';
   width: 100%;
@@ -177,21 +179,25 @@ main {
   right: -80px;
   top: 0;
 }
+
 .hero-content > * {
   position: relative;
   z-index: 1;
 }
+
 .hero-headline {
   font-size: 6rem;
   font-weight: normal;
   white-space: nowrap;
 }
+
 .hero-text {
   width: 146%;
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
 }
+
 .btn-signup {
   outline: none;
   text-transform: capitalize;
@@ -199,15 +205,18 @@ main {
   padding: 15px 23px;
   margin: 59px 0 0;
 }
+
 .hero-img {
   grid-column: span 8;
 }
+
 .hero-img img {
   width: 100%;
   height: 100%;
   display: block;
   padding: 0;
 }
+
 .copyrights {
   color: #fe142f;
   padding: 0;
@@ -215,11 +224,27 @@ main {
   margin: 60px 0 30px;
   font-weight: bolder;
 }
+
 .hero-section > .btn-signup {
   display: none;
 }
+
 footer {
   padding-left: 2vw;
   padding-right: 2vw;
   margin: 0 20px;
+}
+
+.button {
+  background: #fe142f;
+  margin-top: 0.5em;
+  padding: 1em;
+  color: #fff;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  background: #3876ac;
 }

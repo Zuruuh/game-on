@@ -32,11 +32,9 @@ export class Modal {
   }
 
   /**
-   * Call this method to show/hide the modals on screen
-   *
    * @return {void}
    */
-  toggle() {
+  toggleVisibility() {
     this.element.classList.toggle('shown');
     const ariaHidden = this.element.attributes.getNamedItem('aria-hidden');
 
@@ -46,7 +44,10 @@ export class Modal {
       );
     }
 
-    ariaHidden.value = Boolean(ariaHidden.value === 'false').toString();
+    ariaHidden.value = (ariaHidden.value === 'false').toString();
+    if (this.element.classList.contains('shown')) {
+      this.element.focus();
+    }
 
     this.container?.updateContainerVisibility();
   }
@@ -81,7 +82,7 @@ export class Modal {
     ]);
 
     buttons.forEach((button) =>
-      button.addEventListener('click', () => this.toggle.bind(this)())
+      button.addEventListener('click', () => this.toggleVisibility.bind(this)())
     );
   };
 }

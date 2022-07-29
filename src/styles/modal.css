@@ -22,7 +22,7 @@
 .modal {
   margin: 5% auto;
   width: 100%;
-  max-width: 500px;
+  max-width: 512px;
   background: #232323;
   border-radius: 10px;
   overflow: hidden;

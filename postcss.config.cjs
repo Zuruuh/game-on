@@ -8,7 +8,7 @@ const PostcssConfig = {
     require('autoprefixer')(),
     require('@fullhuman/postcss-purgecss')({
       content: ['./**/*.html'],
-      safelist: ['shown', 'visible', 'responsive'],
+      safelist: ['shown', 'visible', 'responsive', 'data-error'],
     }),
   ],
 };

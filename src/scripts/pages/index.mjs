@@ -15,7 +15,9 @@ class Index {
       registrationForm(form),
       '#registration-modal',
       ['.register-modals-btn', '.btn-signup'],
-      () => {}
+      (e, data) => {
+        console.log(data);
+      }
     );
 
     modalContainer.addModal(modal);

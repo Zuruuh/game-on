@@ -1,8 +1,8 @@
 'use strict';
 
 /**
- * @typedef {import('../builder/FormBuilder').FormBuilder} FormBuilder
- * @typedef {import('../builder/FormFieldBuilder').FormFieldBuilder} FormFieldBuilder
+ * @typedef {import('../builders/FormBuilder').FormBuilder} FormBuilder
+ * @typedef {import('../builders/FormFieldBuilder').FormFieldBuilder} FormFieldBuilder
  * @typedef {import('../constraints/_Validator')._Validator} Validator
  */
 
@@ -44,15 +44,10 @@ export class FormValidator {
   /**
    * @param {FormFieldBuilder} field
    *
-   * @return {true|string[]}
+   * @return {string[]}
    */
   validateField(field) {
-    console.log(
-      `Validating field: ${field.name} (${
-        field.isMultiple ? 'Multiple' : 'Single'
-      })`
-    );
-    const errors = field.validators
+    return field.validators
       .filter((validator) =>
         field.isMultiple
           ? !validator.validateMultiple(
@@ -63,12 +58,6 @@ export class FormValidator {
           : !validator.validate(field.element)
       )
       .map((validator) => validator.options.message);
-
-    if (!errors.length) {
-      return true;
-    }
-
-    return errors;
   }
 
   /**
@@ -83,15 +72,11 @@ export class FormValidator {
       .map((field) => {
         const errors = this.validateField(field);
 
-        if (errors === true) {
-          return {};
-        }
-
         return { [field.name]: errors };
       })
       .reduce((previous, current) => ({ ...previous, ...current }));
 
-    if (Object.keys(errorsMap).length) {
+    if (Object.values(errorsMap).some((errorMap) => errorMap.length)) {
       return errorsMap;
     }
 
