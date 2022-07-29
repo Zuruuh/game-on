@@ -20,6 +20,14 @@ export class FormModal extends Modal {
    */
   onSubmit;
 
+  get form() {
+    return this.formValidator.form;
+  }
+
+  get formBuilder() {
+    return this.formValidator.formBuilder;
+  }
+
   /**
    * @param {FormBuilder} formBuilder
    * @param {string} modalSelector The CSS Selector which will be used to get the element from the DOM
@@ -52,10 +60,30 @@ export class FormModal extends Modal {
   submit(event) {
     event.preventDefault();
     const errors = this.formValidator.validateForm();
-    console.log(errors);
 
     if (errors === true) {
       this.onSubmit(event);
+
+      return;
     }
+
+    this.#displayErrors(errors);
+  }
+
+  /**
+   * Display errors in form html element
+   *
+   * @param {Record<string, string[]>} errors
+   */
+  #displayErrors(errors) {
+    Object.entries(errors).forEach(([fieldName, [error]]) => {
+      const element = this.formBuilder.getFieldByName(fieldName).element;
+
+      if (error) {
+        element.parentElement.setAttribute('data-error', error);
+      } else {
+        element.parentElement.removeAttribute('data-error');
+      }
+    });
   }
 }
