@@ -73,7 +73,7 @@ export class Modal {
       .reduce((previous, current) => [...current, ...previous]);
 
     const innerClosingButtons = Array.from(
-      this.element.querySelectorAll('.modals-close-button')
+      this.element.querySelectorAll('.modal-close-button')
     );
 
     const buttons = arrayUnique([

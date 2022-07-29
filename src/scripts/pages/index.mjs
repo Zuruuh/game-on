@@ -16,6 +16,8 @@ class Index {
       '#registration-modal',
       ['.register-modals-btn', '.btn-signup'],
       (e, data) => {
+        e.target.parentElement.innerHTML = `<p class="modal-message">Merci ${data.firstname}! Votre réservation a été reçue.</p>`;
+
         console.log(data);
       }
     );

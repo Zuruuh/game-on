@@ -4,7 +4,6 @@
 
 #modals-container {
   visibility: hidden;
-  display: block;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -13,6 +12,9 @@
   width: 100%;
   overflow: hidden;
   background-color: rgba(26, 39, 156, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #modals-container.shown {
