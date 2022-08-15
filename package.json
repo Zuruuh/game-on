@@ -12,8 +12,8 @@
     "prod": "vite build --base=$1",
     "playwright:test": "playwright test",
     "playwright:install": "playwright install",
-    "docker:build": "docker build . -t game-on/node -f docker/node.dockerfile",
-    "docker:test": "docker run -it --rm --ipc=host --network=host -v \"$PWD:/srv\" -u $(id -u ${USER}):$(id -g ${USER}) -w /srv game-on/node:latest pnpm run playwright:test"
+    "docker:build": "docker build . -t zuruh/game-on_node -f docker/node.dockerfile",
+    "docker:test": "docker run -it --rm --ipc=host --network=host -v \"$PWD:/srv\" -u $(id -u ${USER}):$(id -g ${USER}) -w /srv zuruh/game-on_node:latest pnpm run playwright:test"
   },
   "author": "Ziadi Younès<ziadi.mail.pro@gmail.com>",
   "license": "ISC",

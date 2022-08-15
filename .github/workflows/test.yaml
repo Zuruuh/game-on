@@ -1,29 +1,18 @@
 name: E2E Tests
-on: [push, pull_request]
+on: [push]
 
 jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    container:
+      image: docker://zuruh/game-on_node:latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
 
-      - name: Setup Node.js environment ✅
-        uses: actions/setup-node@v3.3.0
-        with:
-          node-version: 16
-
-      - name: Setup pnpm 📦
-        uses: pnpm/action-setup@v2.2.2
-        with:
-          version: 7.1.6
-
       - name: Install dependencies 🔧
         run: pnpm install --frozen-lockfile
-
-      - name: Install Playwright Browsers 🕸
-        run: npx playwright install --with-deps
 
       - name: Run Playwright tests 🧪
         run: pnpm run playwright:test
