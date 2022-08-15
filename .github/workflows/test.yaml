@@ -23,10 +23,10 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Install Playwright Browsers 🕸
-        run: pnpx playwright install --with-deps
+        run: npx playwright install --with-deps
 
       - name: Run Playwright tests 🧪
-        run: pnpm run test
+        run: pnpm run playwright:test
         env:
           CI: true
 
