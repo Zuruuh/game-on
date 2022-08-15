@@ -8,6 +8,7 @@ specifiers:
   eslint-config-google: ^0.14.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-prettier: ^4.2.1
+  playwright: ^1.24.1
   postcss: ^8.4.14
   postcss-load-config: ^4.0.1
   prettier: ^2.6.2
@@ -21,6 +22,7 @@ devDependencies:
   eslint-config-google: 0.14.0_eslint@8.19.0
   eslint-config-prettier: 8.5.0_eslint@8.19.0
   eslint-plugin-prettier: 4.2.1_ikfaztf6dt4x6fbtystd5gzdua
+  playwright: 1.24.1
   postcss: 8.4.14
   postcss-load-config: 4.0.1_postcss@8.4.14
   prettier: 2.6.2
@@ -851,6 +853,21 @@ packages:
     resolution: {integrity: sha512-BkDWdVsoEEC8m2glQlfNu1EN2qvjBsLIg5bD0wjrfwv9zVHktIsp80yYFObAcWreLNYhfRP4PlXE04lr5R4DFQ==}
     engines: {node: '>=14'}
     hasBin: true
+    dev: true
+
+  /playwright-core/1.24.1:
+    resolution: {integrity: sha512-1RoSDe/oTQS1Ct7Pb8i+vcFKbKYpmVIBXk0IUiD8RvCUMnNl7EJF1OSQ9E8TZ5RYamWkW2Psir9e8Doyz1FnhQ==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
+
+  /playwright/1.24.1:
+    resolution: {integrity: sha512-ALAdckGTTZq6cPD/NlWE+OO5cgNBi9BHKk6FoDztlcVNJ07F1buwydTuf8wBu1Jzi+SGOpEfLR/83+2fS84ksQ==}
+    engines: {node: '>=14'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      playwright-core: 1.24.1
     dev: true
 
   /postcss-load-config/4.0.1_postcss@8.4.14:

@@ -10,7 +10,10 @@
     "dev": "vite",
     "build": "vite build",
     "prod": "vite build --base=$1",
-    "test": "pnpx playwright test"
+    "playwright:test": "playwright test",
+    "playwright:install": "playwright install",
+    "docker:build": "docker build . -t game-on/node -f docker/node.dockerfile",
+    "docker:test": "docker run -it --rm --ipc=host --network=host -v \"$PWD:/srv\" -u $(id -u ${USER}):$(id -g ${USER}) -w /srv game-on/node:latest pnpm run playwright:test"
   },
   "author": "Ziadi Younès<ziadi.mail.pro@gmail.com>",
   "license": "ISC",
@@ -22,6 +25,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "playwright": "^1.24.1",
     "postcss": "^8.4.14",
     "postcss-load-config": "^4.0.1",
     "prettier": "^2.6.2",

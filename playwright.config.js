@@ -1,11 +1,12 @@
+// @ts-check
+'use strict';
+
 const { devices } = require('@playwright/test');
 
-/**
- * @type {import('@playwright/test').PlaywrightTestConfig}
- */
+/** @type {import('@playwright/test').PlaywrightTestConfig} */
 const config = {
   testDir: './e2e',
-  timeout: 30 * 1000,
+  timeout: 10 * 1000,
   expect: {
     timeout: 5000,
   },
@@ -14,11 +15,6 @@ const config = {
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
-  use: {
-    actionTimeout: 0,
-    baseURL: 'http://localhost:5173',
-    trace: 'on-first-retry',
-  },
 
   projects: [
     {
@@ -44,8 +40,8 @@ const config = {
   ],
 
   webServer: {
-    command: 'pnpm run dev',
-    port: 5173,
+    command: 'pnpm run dev --port 5050',
+    port: 5050,
   },
 };
 
