@@ -1,6 +1,7 @@
 'use strict';
 
 import { arrayUnique } from '../utils/arrayUnique';
+import { DOM } from '../helpers/DOM';
 
 /**
  * @typedef {import('./ModalContainer').ModalContainer} ModalContainer
@@ -26,7 +27,7 @@ export class Modal {
    * @param {string[]} buttonsSelectors The CSS Selector for the buttons which will trigger the modals to show up.
    */
   constructor(modalSelector, buttonsSelectors) {
-    this.element = document.selectOrThrow(modalSelector);
+    this.element = DOM.selectOrThrow(modalSelector);
 
     this.#registerListeners(buttonsSelectors);
   }

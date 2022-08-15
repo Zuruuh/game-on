@@ -3,7 +3,7 @@
 /**
  * @final
  */
-class DOM {
+export class DOM {
   /**
    * @param {string} selector
    * @return {HTMLElement}
@@ -20,5 +20,3 @@ class DOM {
     return element;
   }
 }
-
-document.selectOrThrow = DOM.selectOrThrow;
