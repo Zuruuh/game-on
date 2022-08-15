@@ -11,6 +11,11 @@ lerna-debug.log*
 /dist
 /dist-ssr
 *.local
+/test-results/
+/playwright-report/
+/playwright/.cache/
+/playwright/screenshots/
+
 
 # Editor directories and files
 .vscode/*
