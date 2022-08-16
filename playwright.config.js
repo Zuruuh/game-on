@@ -3,6 +3,24 @@
 
 const { devices } = require('@playwright/test');
 
+const projects = [
+  {
+    name: 'chromium',
+    use: {
+      ...devices['Desktop Chrome'],
+    },
+  },
+  {
+    name: 'webkit',
+    use: {
+      ...devices['Desktop Safari'],
+    },
+  },
+];
+if (!process.env.CI) {
+  projects.push({ name: 'firefox', use: { ...devices['Desktop Firefox'] } });
+}
+
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 const config = {
   testDir: './e2e',
@@ -15,29 +33,7 @@ const config = {
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
-
-  projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-      },
-    },
-
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
-
-    {
-      name: 'webkit',
-      use: {
-        ...devices['Desktop Safari'],
-      },
-    },
-  ],
+  projects,
 
   webServer: {
     command: 'pnpm run dev --port 5050',
