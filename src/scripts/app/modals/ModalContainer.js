@@ -1,11 +1,14 @@
 'use strict';
 
+import { DOM } from '../helpers/DOM';
+
 /**
  * @typedef {import('./Modal').Modal} Modal
  */
 
 /**
  * Abstraction over the DOM modals container html element to group multiple modals on the same page.
+ * When shown, will lock scroll on body as a side effect.
  */
 export class ModalContainer {
   /**
@@ -14,15 +17,21 @@ export class ModalContainer {
   modals = [];
 
   /**
-   * @var {HTMLElement} element
+   * @type {HTMLElement}
    */
   element;
+
+  /**
+   * @type {HTMLBodyElement}
+   */
+  htmlBody;
 
   /**
    * @param {string} containerSelector The CSS Selector which will be used to get the container from the DOM.
    */
   constructor(containerSelector) {
-    this.element = document.selectOrThrow(containerSelector);
+    this.element = DOM.selectOrThrow(containerSelector);
+    this.htmlBody = DOM.selectOrThrow('body');
   }
 
   /**
@@ -57,6 +66,7 @@ export class ModalContainer {
    * @return {void}
    */
   show() {
+    this.htmlBody.classList.add('scroll-lock');
     this.element.classList.add('shown');
   }
 
@@ -64,6 +74,7 @@ export class ModalContainer {
    * @return {void}
    */
   hide() {
+    this.htmlBody.classList.remove('scroll-lock');
     this.element.classList.remove('shown');
   }
 }

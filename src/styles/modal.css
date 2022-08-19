@@ -36,6 +36,12 @@
   transition: transform ease-out var(--modal-duration);
 }
 
+.modal {
+  transform: translateY(55px);
+  max-height: 98vh;
+  overflow-y: auto;
+}
+
 .modal,
 .modal * {
   opacity: 0;
@@ -43,7 +49,7 @@
 }
 
 .modal.shown {
-  transform: translateY(-55px);
+  transform: translateY(0px);
 }
 
 .modal.shown,

@@ -1,3 +1,5 @@
+@import 'vendors.css';
+
 :root {
   --font-default: 'DM Sans', Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
@@ -8,7 +10,6 @@
   margin: 0;
   padding: 0;
 }
-/* Landing Page */
 
 body {
   display: flex;
@@ -17,6 +18,10 @@ body {
   font-size: 18px;
   max-width: 1300px;
   margin: 0 auto;
+}
+
+.scroll-lock {
+  overflow: hidden;
 }
 
 p {
@@ -113,7 +118,6 @@ img {
   .top-nav button.menu-icon {
     float: right;
     display: block;
-    margin-top: -15px;
   }
 }
 

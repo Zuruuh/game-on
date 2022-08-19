@@ -8,6 +8,8 @@ import { FormValidator } from '../validator/FormValidator';
  */
 
 export class FormModal extends Modal {
+  static INPUT_DEBOUNCE_TIMEOUT = 1000;
+
   /**
    * @type {FormValidator}
    * @readonly
@@ -58,13 +60,13 @@ export class FormModal extends Modal {
         return;
       }
       // Revalidates the field when use leaves it.
-      field.element.addEventListener('focusout', (event) => {
+      field.element.addEventListener('focusout', () => {
         const errors = this.formValidator.validateField(field);
 
         field.displayErrors(errors);
       });
 
-      field.element.addEventListener('input', (event) => {
+      field.element.addEventListener('input', () => {
         field.container.removeAttribute('data-error');
         if (field.debounceTimeout) {
           clearTimeout(field.debounceTimeout);
@@ -74,7 +76,7 @@ export class FormModal extends Modal {
           const errors = this.formValidator.validateField(field);
 
           field.displayErrors(errors);
-        }, 1500);
+        }, FormModal.INPUT_DEBOUNCE_TIMEOUT);
       });
     });
   }
