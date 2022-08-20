@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['google', 'prettier'],
+  extends: ['prettier'],
   plugins: ['prettier'],
   parserOptions: {
     ecmaVersion: 'latest',

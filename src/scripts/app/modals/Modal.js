@@ -1,7 +1,7 @@
 'use strict';
 
-import { arrayUnique } from '../utils/arrayUnique';
-import { DOM } from '../helpers/DOM';
+import { arrayUnique } from '../utils/arrayUnique.js';
+import { DOM } from '../helpers/DOM.js';
 
 /**
  * @typedef {import('./ModalContainer').ModalContainer} ModalContainer

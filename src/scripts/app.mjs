@@ -1,7 +1,6 @@
 'use strict';
 
-import '/src/styles/app.css';
-import { DOM } from './app/helpers/DOM';
+import { DOM } from './app/helpers/DOM.js';
 
 class App {
   async start() {

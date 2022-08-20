@@ -1,10 +1,8 @@
 'use strict';
 
-import '/src/styles/modal.css';
-import '/src/styles/form-control.css';
 import { ModalContainer } from '../app/modals/ModalContainer.js';
-import { FormModal } from '../app/modals/FormModal';
-import { registrationForm } from '../forms/RegistrationForm';
+import { FormModal } from '../app/modals/FormModal.js';
+import { registrationForm } from '../forms/RegistrationForm.js';
 
 class Index {
   async start() {

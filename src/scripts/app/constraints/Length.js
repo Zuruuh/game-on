@@ -1,8 +1,8 @@
 'use strict';
 
-import { _Validator } from './_Validator';
-import { MaxLength } from './MaxLength';
-import { MinLength } from './MinLength';
+import { _Validator } from './_Validator.js';
+import { MaxLength } from './MaxLength.js';
+import { MinLength } from './MinLength.js';
 
 /**
  * @typedef {import('../../typings').ValidatorFunction} ValidatorFunction

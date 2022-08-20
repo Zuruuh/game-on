@@ -1,6 +1,6 @@
 'use strict';
 
-import { DOM } from '../helpers/DOM';
+import { DOM } from '../helpers/DOM.js';
 
 /**
  * @typedef {import('./Modal').Modal} Modal

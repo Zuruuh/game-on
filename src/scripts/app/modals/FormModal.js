@@ -1,7 +1,7 @@
 'use strict';
 
-import { Modal } from './Modal';
-import { FormValidator } from '../validator/FormValidator';
+import { Modal } from './Modal.js';
+import { FormValidator } from '../validator/FormValidator.js';
 
 /**
  * @typedef {import('../builders/FormBuilder').FormBuilder} FormBuilder

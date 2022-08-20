@@ -1,12 +1,12 @@
 'use strict';
 
-import { MinLength } from '../constraints/MinLength';
-import { NotBlank } from '../constraints/NotBlank';
-import { MaxLength } from '../constraints/MaxLength';
-import { Email } from '../constraints/Email';
-import { Numeric } from '../constraints/Numeric';
-import { Required } from '../constraints/Required';
-import { IsDate } from '../constraints/IsDate';
+import { MinLength } from '../constraints/MinLength.js';
+import { NotBlank } from '../constraints/NotBlank.js';
+import { MaxLength } from '../constraints/MaxLength.js';
+import { Email } from '../constraints/Email.js';
+import { Numeric } from '../constraints/Numeric.js';
+import { Required } from '../constraints/Required.js';
+import { IsDate } from '../constraints/IsDate.js';
 
 /**
  * @typedef {import('./FormBuilder').FormBuilder} FormBuilder

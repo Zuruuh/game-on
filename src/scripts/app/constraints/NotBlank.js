@@ -1,6 +1,6 @@
 'use strict';
 
-import { _Validator } from './_Validator';
+import { _Validator } from './_Validator.js';
 
 /**
  * @typedef {import('../../typings').ValidatorFunction} ValidatorFunction

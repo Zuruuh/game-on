@@ -1,6 +1,6 @@
 'use strict';
 
-import { FormFieldBuilder } from './FormFieldBuilder';
+import { FormFieldBuilder } from './FormFieldBuilder.js';
 
 export class FormBuilder {
   /**
