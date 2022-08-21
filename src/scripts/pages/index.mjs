@@ -13,10 +13,42 @@ class Index {
       registrationForm(form),
       '#registration-modal',
       ['.register-modals-btn', '.btn-signup'],
-      (e, data) => {
-        e.target.parentElement.innerHTML = `<p class="modal-message">Merci ${data.firstname}! Votre réservation a été reçue.</p>`;
+      async (e, data, modal) => {
+        /**
+         * @type {{target: HTMLFormElement}}
+         */
+        /// @ts-ignore
+        const { target: formElement } = e;
 
-        console.log(data);
+        if (!formElement || !formElement.parentElement) {
+          return;
+        }
+
+        const messageContainer = document.createElement('div');
+        messageContainer.classList.add('modal-message');
+
+        const message = document.createElement('p');
+        message.textContent = 'Merci pour votre inscription';
+
+        const closeButton = document.createElement('button');
+        closeButton.classList.add('btn');
+        closeButton.textContent = 'Fermer';
+        closeButton.addEventListener(
+          'click',
+          modal.toggleVisibility.bind(modal)
+        );
+
+        messageContainer.append(message, closeButton);
+
+        const { clientHeight: modalHeight } = formElement;
+        while (formElement.lastChild) {
+          formElement.removeChild(formElement.lastChild);
+        }
+
+        formElement.style.height = `${modalHeight}px`;
+        formElement.append(messageContainer);
+
+        console.table(data);
       }
     );
 

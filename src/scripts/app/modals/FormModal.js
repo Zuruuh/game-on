@@ -17,7 +17,7 @@ export class FormModal extends Modal {
   formValidator;
 
   /**
-   * @type {function(SubmitEvent, Record<string, *>): *}
+   * @type {function(SubmitEvent, Record<string, *>, FormModal): *}
    * @readonly
    */
   onSubmit;
@@ -38,7 +38,7 @@ export class FormModal extends Modal {
    * @param {FormBuilder} formBuilder
    * @param {string} modalSelector The CSS Selector which will be used to get the element from the DOM
    * @param {string[]} buttonsSelectors The CSS Selector for the buttons which will trigger the modals to show up.
-   * @param {function(SubmitEvent): *} onSubmit
+   * @param {function(SubmitEvent, Record<string, *>, FormModal): Promise<*>} onSubmit
    */
   constructor(formBuilder, modalSelector, buttonsSelectors, onSubmit) {
     super(modalSelector, buttonsSelectors);
@@ -93,9 +93,9 @@ export class FormModal extends Modal {
     if (errors === true) {
       const data = Array.from(new FormData(event.target).entries())
         .map(([key, value]) => ({ [key]: value }))
-        .reduce((previous, current) => ({ ...previous, ...current }));
+        .reduce((previous, current) => ({ ...previous, ...current }), {});
 
-      this.onSubmit(event, data);
+      this.onSubmit(event, data, this);
 
       return;
     }
